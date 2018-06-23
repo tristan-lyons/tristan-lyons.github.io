@@ -13,7 +13,8 @@ if (isset($_POST["action"])) {
         case "SendMessage": {
                 if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) && isset($_POST["message"]) && !empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["subject"]) && !empty($_POST["message"])) {
 
-                    $message = $_POST["message"];
+                    $message = "Name:" . $_POST["name"]. "<br/><br/>";
+                    $message .= $_POST["message"];
                     $message .= "<br/><br/>";
 
                     $response = (SendEmail($message, $_POST["subject"], $_POST["email"], $email)) ? 'Message Sent' : "Sending Message Failed";
